@@ -1,24 +1,21 @@
-# bandit
+# BANDIT
 
 Desktop electron app for mimicking a bad actor that operates on files, processes, and network connections.
 
 ## To create a vuetify / electron app from scratch
 
-````bash
-vue create my-app
-cd my-app
-vue add vuetify
-vue add electron-builder```
+`vue create my-app`
+`cd my-app`
+`vue add vuetify`
+`vue add electron-builder`
 then...
-`yarn run serve`
+`yarn serve`
 or...
 `yarn electron:serve`
 
-
-
 ## Project setup
 
-````
+``
 
 npm install
 
@@ -59,4 +56,8 @@ npm run lint
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
+```
+
+```
+
 ```
