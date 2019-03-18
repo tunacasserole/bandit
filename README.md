@@ -8,8 +8,10 @@ Desktop electron app for mimicking a bad actor that operates on files, processes
 `cd my-app`
 `vue add vuetify`
 `vue add electron-builder`
+
 then...
 `yarn serve`
+
 or...
 `yarn electron:serve`
 
