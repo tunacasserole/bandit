@@ -11,10 +11,12 @@
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps"
   },
-  "main": "background.js",
+  "main": "main.js",
   "dependencies": {
     "vue": "^2.6.6",
-    "vuetify": "^1.5.5"
+    "vue-router": "^3.0.2",
+    "vuetify": "^1.5.5",
+    "vuex": "^3.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.5.0",
