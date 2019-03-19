@@ -21,7 +21,7 @@
     <v-toolbar :color="color" app absolute clipped-left>
       <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
       <span class="title ml-3 mr-5">
-        Bandit!&nbsp;
+        bandit&nbsp;
         <span class="font-weight-light"></span>
       </span>
       <v-text-field solo-inverted flat hide-details label="Search" prepend-inner-icon="search"></v-text-field>
@@ -43,7 +43,9 @@ export default {
     color: "red",
     items: [
       { heading: "File System" },
-      { to: "/files", icon: "add", text: "Launch a File Attack" },
+      { to: "/fileCreate", icon: "add", text: "Launch a file attack" },
+      { to: "/fileDelete", icon: "remove", text: "Delete a file" },
+      { to: "/fileUpdate", icon: "edit", text: "Modify a file" },
       { divider: true },
       { heading: "Network Connections" },
       { to: "/network", icon: "power", text: "Connect" },

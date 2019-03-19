@@ -1,7 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
-import Files from "./views/Files.vue";
+import FileCreate from "./views/FileCreate.vue";
+import FileUpdate from "./views/FileUpdate.vue";
+import FileDelete from "./views/FileDelete.vue";
 import Network from "./views/Network.vue";
 import Processes from "./views/Processes.vue";
 
@@ -15,9 +17,19 @@ export default new Router({
       component: Home
     },
     {
-      path: "/files",
-      name: "Files",
-      component: Files
+      path: "/fileCreate",
+      name: "FileCreate",
+      component: FileCreate
+    },
+    {
+      path: "/fileDelete",
+      name: "FileDelete",
+      component: FileDelete
+    },
+    {
+      path: "/fileUpdate",
+      name: "FileUpdate",
+      component: FileUpdate
     },
     {
       path: "/processes",

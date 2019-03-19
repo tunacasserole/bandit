@@ -2,7 +2,7 @@
   <v-card>
     <v-toolbar card color="black" dark dense>
       <v-icon>arrow_back</v-icon>
-      <v-toolbar-title>File System Attacks</v-toolbar-title>
+      <v-toolbar-title>File System Attack</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-icon>send</v-icon>
     </v-toolbar>
@@ -16,7 +16,7 @@
                   solo
                   name="input-7-4"
                   label="Solo textarea"
-                  value="Enter the name of the file you wish to create.  You must have the necessary permissions to perform this.  If you experience any issues, check the sudo option (coming soon...) to provide your username and password."
+                  value="Enter the name of the file you wish to edit."
                 ></v-textarea>
               </v-flex>
 
@@ -30,22 +30,6 @@
                 ></v-text-field>
               </v-flex>
 
-              <v-flex xs4></v-flex>
-              <v-flex xs8>
-                <v-text-field
-                  v-model="password"
-                  box
-                  color="black"
-                  label="Password"
-                  style="min-height: 96px"
-                  type="password"
-                ></v-text-field>
-              </v-flex>
-
-              <v-checkbox v-model="agreement" color="deep-purple">
-                <template v-slot:label>Use sudo and the password provided to create my file.</template>
-              </v-checkbox>
-
               <v-flex xs8></v-flex>
               <v-flex xs4>
                 <v-btn
@@ -53,7 +37,7 @@
                   :disabled="loading"
                   color="red"
                   class="black--text"
-                  @click="createFile"
+                  @click="updateFile"
                 >Create File
                   <v-icon right>cloud_download</v-icon>
                 </v-btn>
@@ -72,33 +56,18 @@ export default {
     agreement: false,
     fileName: "sample.txt",
     loading: false,
-    bio:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts",
-    dialog: false,
-    email: undefined,
-    form: false,
-    isLoading: false,
-    password: undefined,
-    phone: undefined
+    form: false
   }),
   methods: {
-    greet: function(event) {
-      // `this` inside methods points to the Vue instance
-      alert("Hello " + this.name + "!");
-      // `event` is the native DOM event
-      if (event) {
-        alert(event.target.tagName);
-      }
-    },
-    createFile: function() {
+    updateFile: function() {
       var fs = require("fs");
       this.loading = !this.loading;
       var content = "some sample content";
-      alert("Creating your file " + this.fileName);
       try {
         fs.writeFileSync(this.fileName, content, "utf-8");
+        alert("Updated the file " + this.fileName);
       } catch (e) {
-        alert("Failed to save the file !");
+        alert("Failed to update the file !");
       }
 
       this.loading = !this.loading;
