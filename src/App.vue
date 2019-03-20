@@ -18,7 +18,7 @@
         </template>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar :color="color" app absolute clipped-left>
+    <v-toolbar :color="color" app absolute clipped-left style="-webkit-app-region: drag">
       <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
       <span class="title ml-3 mr-5">
         bandit&nbsp;

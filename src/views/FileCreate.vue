@@ -75,25 +75,16 @@ export default {
     password: undefined
   }),
   methods: {
-    greet: function(event) {
-      // `this` inside methods points to the Vue instance
-      alert("Hello " + this.name + "!");
-      // `event` is the native DOM event
-      if (event) {
-        alert(event.target.tagName);
-      }
-    },
     createFile: function() {
       var fs = require("fs");
       this.loading = !this.loading;
       var content = "some sample content";
-      alert("Creating your file " + this.fileName);
       try {
         fs.writeFileSync(this.fileName, content, "utf-8");
+        alert("Created your file " + this.fileName);
       } catch (e) {
         alert("Failed to save the file !");
       }
-
       this.loading = !this.loading;
     }
   }

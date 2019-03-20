@@ -1,6 +1,6 @@
 # BANDIT
 
-Desktop electron app for mimicking a bad actor that operates on files, processes, and network connections.
+Desktop electron app for mimicking a bad actor that operates on files, processes, and data.
 
 ## To create a vuetify / electron app from scratch
 

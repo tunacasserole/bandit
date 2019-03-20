@@ -1,6 +1,8 @@
 {
   "name": "bandit",
-  "version": "0.2.0",
+  "version": "0.3.0",
+  "author": "AA-Ron",
+  "description": "Desktop electron app for mimicking a bad actor that operates on files, processes, and data.",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
