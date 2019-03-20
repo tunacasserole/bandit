@@ -1,11 +1,12 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
 import FileCreate from "./views/FileCreate.vue";
 import FileUpdate from "./views/FileUpdate.vue";
 import FileDelete from "./views/FileDelete.vue";
+import Home from "./views/Home.vue";
 import Network from "./views/Network.vue";
-import Processes from "./views/Processes.vue";
+import ProcessStart from "./views/ProcessStart.vue";
+import ProcessKill from "./views/ProcessKill.vue";
 
 Vue.use(Router);
 
@@ -32,9 +33,14 @@ export default new Router({
       component: FileUpdate
     },
     {
-      path: "/processes",
-      name: "Processes",
-      component: Processes
+      path: "/processStart",
+      name: "ProcessStart",
+      component: ProcessStart
+    },
+    {
+      path: "/processKill",
+      name: "ProcessKill",
+      component: ProcessKill
     },
     {
       path: "/network",

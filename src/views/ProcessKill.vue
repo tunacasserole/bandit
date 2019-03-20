@@ -2,7 +2,7 @@
   <v-card>
     <v-toolbar card color="black" dark dense>
       <v-icon>arrow_back</v-icon>
-      <v-toolbar-title>Process Attack</v-toolbar-title>
+      <v-toolbar-title>Process Killer</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-icon>send</v-icon>
     </v-toolbar>
@@ -10,16 +10,11 @@
       <v-card class="mx-auto pa-3">
         <v-layout row wrap>
           <v-flex xs12 pb-3>
-            <v-label>Enter the name of the executable file:</v-label>
+            <v-label>Enter the pid of the process to kill:</v-label>
           </v-flex>
 
           <v-flex xs8 pb-4>
-            <v-text-field v-model="fileName" label="path/to/file/name.ext" single-line outline></v-text-field>
-          </v-flex>
-
-          <v-flex xs8 pb-5>
-            <v-label>Command line arguments:</v-label>
-            <v-text-field v-model="processArguments"></v-text-field>
+            <v-text-field v-model="pid" label="e.g. 6619" single-line outline></v-text-field>
           </v-flex>
 
           <v-flex xs7></v-flex>
@@ -29,8 +24,8 @@
               :disabled="loading"
               color="red"
               class="black--text"
-              @click="startProcess"
-            >Start Process
+              @click="killProcess"
+            >Kill Process
               <v-icon right>play_circle_outline</v-icon>
             </v-btn>
           </v-flex>
@@ -43,27 +38,25 @@
 <script>
 export default {
   data: () => ({
-    agreement: false,
-    processName: "path/to/process/processName.ext",
-    processArguments: "-v --some-example",
-    loading: false,
-    password: undefined
+    pid: "1101",
+    loading: false
   }),
   methods: {
-    startProcess: function() {
+    killProcess: function() {
       this.loading = !this.loading;
       const { spawn } = require("child_process");
-      const ls = spawn("ls", ["-lh", "/usr"]);
+      const killCommand = spawn("kill " + this.pid, []);
 
-      ls.stdout.on("data", data => {
+      alert(`Issued Kill comand for pid: ${this.pid}`);
+      killCommand.stdout.on("data", data => {
         alert(`stdout: ${data}`);
       });
 
-      ls.stderr.on("data", data => {
+      killCommand.stderr.on("data", data => {
         alert(`stderr: ${data}`);
       });
 
-      ls.on("close", code => {
+      killCommand.on("close", code => {
         alert(`child process exited with code ${code}`);
       });
       this.loading = !this.loading;

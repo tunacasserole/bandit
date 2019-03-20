@@ -53,7 +53,6 @@
 <script>
 export default {
   data: () => ({
-    agreement: false,
     fileName: "sample.txt",
     newContent: "New Contents.",
     loading: false,
