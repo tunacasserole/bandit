@@ -55,6 +55,7 @@ export default {
   data: () => ({
     agreement: false,
     fileName: "sample.txt",
+    newContent: "sample.txt",
     loading: false,
     form: false
   }),
@@ -62,7 +63,7 @@ export default {
     updateFile: function() {
       var fs = require("fs");
       this.loading = !this.loading;
-      var content = "some sample content";
+      var content = this.newContent;
       try {
         fs.writeFileSync(this.fileName, content, "utf-8");
         alert("Updated the file " + this.fileName);
