@@ -7,14 +7,13 @@
       <v-icon>send</v-icon>
     </v-toolbar>
     <v-container>
-      <v-card class="mx-auto pa-3" style="max-width: 600px;">
+      <v-card class="mx-auto pa-3">
         <v-layout row wrap>
           <v-flex xs12>
             <h3>Enter the name of the file you wish to edit and the new contents.</h3>
             <br>
           </v-flex>
 
-          <v-flex xs4></v-flex>
           <v-flex xs8>
             <v-text-field
               v-model="fileName"
@@ -41,7 +40,7 @@
               color="red"
               class="black--text"
               @click="updateFile"
-            >Edit File
+            >Update File
               <v-icon right>cloud_download</v-icon>
             </v-btn>
           </v-flex>
@@ -56,8 +55,9 @@ export default {
   data: () => ({
     agreement: false,
     fileName: "sample.txt",
-    newContent: "sample.txt",
-    loading: false
+    newContent: "New Contents.",
+    loading: false,
+    drawer: null
   }),
   methods: {
     updateFile: function() {

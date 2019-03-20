@@ -7,7 +7,7 @@
       <v-icon>send</v-icon>
     </v-toolbar>
     <v-container>
-      <v-card class="mx-auto pa-3" style="max-width: 600px;">
+      <v-card class="mx-auto pa-3">
         <v-layout row wrap>
           <v-flex xs12>
             <v-textarea
@@ -76,8 +76,9 @@ export default {
       this.loading = !this.loading;
       var content = "some sample content";
       try {
-        fs.writeFile(this.fileName, content, "utf-8");
+        fs.writeFileSync(this.fileName, content, "utf-8");
         alert("Created your file " + this.fileName);
+        localStorage.fileHistory.push(this.fileName);
       } catch (e) {
         alert("Failed to create the file !\n\n" + e);
       }

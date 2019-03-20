@@ -21,7 +21,7 @@
     <v-toolbar :color="color" app absolute clipped-left style="-webkit-app-region: drag">
       <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
       <span class="title ml-3 mr-5">
-        bandit&nbsp;
+        Bandit!
         <span class="font-weight-light"></span>
       </span>
       <v-text-field solo-inverted flat hide-details label="Search" prepend-inner-icon="search"></v-text-field>
@@ -42,18 +42,23 @@ export default {
     drawer: null,
     color: "red",
     items: [
+      { to: "/", icon: "dashboard", text: "Dashboard" },
+      { divider: true },
       { heading: "File System" },
       { to: "/fileCreate", icon: "add", text: "Launch a file attack" },
+      { to: "/fileUpdate", icon: "edit", text: "Edit a file" },
       { to: "/fileDelete", icon: "remove", text: "Delete a file" },
-      { to: "/fileUpdate", icon: "edit", text: "Modify a file" },
+      { divider: true },
+      { heading: "System Processes" },
+      { to: "/processes", icon: "replay", text: "Start" },
+      { to: "/processes", icon: "stop", text: "Kill" },
       { divider: true },
       { heading: "Network Connections" },
       { to: "/network", icon: "power", text: "Connect" },
       { to: "/network", icon: "send", text: "Send Data" },
       { divider: true },
-      { heading: "System Processes" },
-      { to: "/processes", icon: "replay", text: "Start" },
-      { to: "/processes", icon: "stop", text: "Kill" },
+      { heading: "System Logs" },
+      { to: "/logs", icon: "list", text: "Review Logs" },
       { divider: true },
       { heading: "Registry Attacks" },
       {
