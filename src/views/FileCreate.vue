@@ -14,7 +14,7 @@
               solo
               name="input-7-4"
               label="Solo textarea"
-              value="Enter the name of the file you wish to create.  You must have the necessary permissions to perform this.  If needed, check the sudo option (coming soon...) to provide your username and password."
+              value="Enter the name of the file you wish to create. Relative paths are supported.\n  Also, you must have the necessary permissions to perform this.  If needed, check the sudo option (coming soon...) to provide your username and password."
             ></v-textarea>
           </v-flex>
 
@@ -76,7 +76,7 @@ export default {
       this.loading = !this.loading;
       var content = "some sample content";
       try {
-        fs.writeFileSync(this.fileName, content, "utf-8");
+        fs.writeFile(this.fileName, content, "utf-8");
         alert("Created your file " + this.fileName);
       } catch (e) {
         alert("Failed to create the file !\n\n" + e);
