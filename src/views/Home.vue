@@ -2,7 +2,7 @@
   <v-card>
     <v-toolbar card color="black" dark dense>
       <v-icon>arrow_back</v-icon>
-      <v-toolbar-title>Sample Recent Endpoint Activity (stub)</v-toolbar-title>
+      <v-toolbar-title>Recent Endpoint Activity</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-icon>arrow_forward</v-icon>
     </v-toolbar>

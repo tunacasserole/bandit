@@ -4,7 +4,7 @@
       <v-icon>arrow_back</v-icon>
       <v-toolbar-title>File System Attack</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-icon>send</v-icon>
+      <v-icon>arrow_forward</v-icon>
     </v-toolbar>
     <v-container>
       <v-card class="mx-auto pa-3">
@@ -14,7 +14,7 @@
               solo
               name="input-7-4"
               label="Solo textarea"
-              value="Enter the name of the file you wish to create. Relative paths are supported.\n  Also, you must have the necessary permissions to perform this.  If needed, check the sudo option (coming soon...) to provide your username and password."
+              value="Enter the name of the file you wish to create. Relative paths are supported.  Also, you must have the necessary permissions to perform this.  If needed, check the sudo option (coming soon...) to provide your username and password."
             ></v-textarea>
           </v-flex>
 
@@ -78,7 +78,7 @@ export default {
       try {
         fs.writeFileSync(this.fileName, content, "utf-8");
         alert("Created your file " + this.fileName);
-        localStorage.fileHistory.push(this.fileName);
+        // localStorage.fileHistory.push(this.fileName);
       } catch (e) {
         alert("Failed to create the file !\n\n" + e);
       }

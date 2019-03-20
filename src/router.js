@@ -4,7 +4,8 @@ import FileCreate from "./views/FileCreate.vue";
 import FileUpdate from "./views/FileUpdate.vue";
 import FileDelete from "./views/FileDelete.vue";
 import Home from "./views/Home.vue";
-import Network from "./views/Network.vue";
+import NetworkConnect from "./views/NetworkConnect.vue";
+import NetworkSend from "./views/NetworkSend.vue";
 import ProcessStart from "./views/ProcessStart.vue";
 import ProcessKill from "./views/ProcessKill.vue";
 
@@ -33,6 +34,16 @@ export default new Router({
       component: FileUpdate
     },
     {
+      path: "/networkConnect",
+      name: "NetworkConnect",
+      component: NetworkConnect
+    },
+    {
+      path: "/networkSend",
+      name: "NetworkSend",
+      component: NetworkSend
+    },
+    {
       path: "/processStart",
       name: "ProcessStart",
       component: ProcessStart
@@ -41,11 +52,6 @@ export default new Router({
       path: "/processKill",
       name: "ProcessKill",
       component: ProcessKill
-    },
-    {
-      path: "/network",
-      name: "Network",
-      component: Network
     }
   ]
 });

@@ -4,7 +4,7 @@
       <v-icon>arrow_back</v-icon>
       <v-toolbar-title>Process Killer</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-icon>send</v-icon>
+      <v-icon>arrow_forward</v-icon>
     </v-toolbar>
     <v-container>
       <v-card class="mx-auto pa-3">
