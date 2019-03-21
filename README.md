@@ -2,22 +2,17 @@
 
 Desktop electron app for mimicking a bad actor that operates on files, processes, and data.
 
-## To create a vuetify / electron app from scratch
+## To run in Electron
 
-`vue create my-app`
-`cd my-app`
-`vue add vuetify`
-`vue add electron-builder`
-
-then...
 `yarn serve`
 
 or...
+
 `yarn electron:serve`
 
 ## Project setup
 
-``
+```
 
 npm install
 
@@ -58,8 +53,23 @@ npm run lint
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+```
+
 ```
 
 ```
 
+## To create a NEW vuetify / electron app from scratch
+
+`vue create my-app`
+`cd my-app`
+`vue add vuetify`
+`vue add electron-builder`
+
+then...
+`yarn serve`
+
+or...
+`yarn electron:serve`
 ```

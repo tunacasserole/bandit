@@ -18,7 +18,7 @@
           </v-flex>
           <v-flex sm2 d-flex></v-flex>
           <v-flex sm4 d-flex>
-            <v-btn @click="sendDataByRequest();" color="error">Connect</v-btn>
+            <v-btn @click="sendDataByRequest();" color="error">Send Data Now !</v-btn>
           </v-flex>
         </v-layout>
       </v-container>

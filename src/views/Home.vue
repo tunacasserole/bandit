@@ -9,7 +9,12 @@
 
     <v-list two-line>
       <template v-for="(item, index) in items">
-        <v-list-tile :key="item.title" avatar ripple @click="toggle(index)">
+        <v-list-tile
+          :key="item.pid"
+          avatar
+          ripple
+          @click="alert('Ability to replay attack not yet implemented.')"
+        >
           <v-list-tile-content>
             <v-list-tile-title>{{ item.title }}</v-list-tile-title>
             <v-list-tile-sub-title class="text--primary">{{ item.activityType }}</v-list-tile-sub-title>
@@ -18,9 +23,9 @@
 
           <v-list-tile-action>
             <v-list-tile-action-text>{{ item.pid }}</v-list-tile-action-text>
-            <v-icon v-if="selected.indexOf(index) < 0" color="grey lighten-1">star_border</v-icon>
+            <v-icon v-if="selected.indexOf(index) < 0" color="grey lighten-1">replay</v-icon>
 
-            <v-icon v-else color="yellow darken-2">star</v-icon>
+            <v-icon v-else color="yellow darken-2">replay</v-icon>
           </v-list-tile-action>
         </v-list-tile>
         <v-divider v-if="index + 1 < items.length" :key="index"></v-divider>
@@ -73,6 +78,9 @@ export default {
       } else {
         this.selected.push(index);
       }
+    },
+    alert(message) {
+      alert(message);
     }
   }
 };
