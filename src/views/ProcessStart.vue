@@ -46,7 +46,7 @@
 export default {
   data: () => ({
     processName: "ls",
-    processArguments: "-lh,/usr",
+    processArguments: "-a",
     loading: false,
     password: undefined
   }),
