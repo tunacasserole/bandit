@@ -4,6 +4,7 @@ import FileCreate from "./views/FileCreate.vue";
 import FileUpdate from "./views/FileUpdate.vue";
 import FileDelete from "./views/FileDelete.vue";
 import Home from "./views/Home.vue";
+import Signin from "./views/Signin.vue";
 import NetworkConnect from "./views/NetworkConnect.vue";
 import NetworkSend from "./views/NetworkSend.vue";
 import ProcessStart from "./views/ProcessStart.vue";
@@ -17,6 +18,11 @@ export default new Router({
       path: "/",
       name: "home",
       component: Home
+    },
+    {
+      path: "/signin",
+      name: "signin",
+      component: Signin
     },
     {
       path: "/fileCreate",

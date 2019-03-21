@@ -26,6 +26,21 @@
       </span>
       <v-text-field solo-inverted flat hide-details label="Search" prepend-inner-icon="search"></v-text-field>
       <v-spacer></v-spacer>
+      <v-menu open-on-hover bottom left offset-y>
+        <template v-slot:activator="{ on }">
+          <v-btn icon large v-on="on">
+            <v-avatar tile>
+              <img src="./assets/icon.png" alt="Bandit">
+            </v-avatar>
+          </v-btn>
+        </template>
+
+        <v-list>
+          <v-list-tile @click="signout">
+            <v-list-tile-title>Sign Out</v-list-tile-title>
+          </v-list-tile>
+        </v-list>
+      </v-menu>
     </v-toolbar>
     <v-content>
       <v-fade-transition mode="out-in">
@@ -74,7 +89,12 @@ export default {
   props: {
     source: String
   },
-  mounted() {}
+
+  methods: {
+    signout: function() {
+      this.$router.push("signin");
+    }
+  }
 };
 </script>
 
