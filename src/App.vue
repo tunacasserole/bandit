@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-navigation-drawer v-model="drawer" fixed clipped class="grey lighten-4" app>
+    <v-navigation-drawer v-model="drawer" fixed clipped class="grey lighten-4">
       <v-list dense class="grey lighten-4">
         <template v-for="(item, i) in items">
           <v-layout v-if="item.heading" :key="i" row align-center>
@@ -18,7 +18,14 @@
         </template>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar :color="color" app absolute clipped-left style="-webkit-app-region: drag">
+    <v-toolbar
+      v-show="authenticated"
+      :color="color"
+      app
+      absolute
+      clipped-left
+      style="-webkit-app-region: drag"
+    >
       <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
       <span class="title ml-3 mr-5">
         Bandit!
@@ -58,7 +65,7 @@ export default {
     drawer: null,
     color: "red",
     items: [
-      { to: "/", icon: "dashboard", text: "Dashboard" },
+      { to: "/dashboard", icon: "dashboard", text: "Dashboard" },
       { divider: true },
       { heading: "File System" },
       { to: "/fileCreate", icon: "add", text: "Launch a file attack" },
@@ -90,10 +97,20 @@ export default {
     source: String
   },
 
+  computed: {
+    authenticated() {
+      return this.$store.state.authenticated;
+    }
+  },
+
   methods: {
     signout: function() {
+      this.$store.state.authenticated = false;
       this.$router.push("signin");
     }
+  },
+  mounted() {
+    this.$router.push("signin");
   }
 };
 </script>

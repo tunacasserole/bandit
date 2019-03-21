@@ -18,7 +18,7 @@
           </v-flex>
           <v-flex sm2 d-flex></v-flex>
           <v-flex sm4 d-flex>
-            <v-btn @click="sendDataByRequest();" color="error">Connect</v-btn>
+            <v-btn @click="establishNetworkConnection();" color="error">Connect</v-btn>
           </v-flex>
         </v-layout>
       </v-container>
@@ -30,33 +30,41 @@
 export default {
   data: () => ({
     loading: false,
-    destination: "http://mockbin.com/request",
-    connectionStyles: ["Curl - coming soon", "Node Request"]
+    processName: "nc",
+    processArguments: ""
   }),
   methods: {
-    sendDataByRequest: function() {
+    establishNetworkConnection: function() {
       this.loading = !this.loading;
-      var destination = this.destination;
-      var request = require("request");
-      var options = {
-        method: "POST",
-        url: this.destination,
-        qs: { foo: ["bar", "baz"] },
-        headers: {
-          "x-pretty-print": "2",
-          "content-type": "application/json",
-          accept: "application/json"
-        },
-        body: { foo: "bar" },
-        json: true
-      };
+      const { spawn } = require("child_process");
+      var args = [];
 
-      request(options, function(error) {
-        if (error) {
-          alert("Failed to send the data !\n\n" + error);
-        } else {
-          alert("Data Sent to " + destination + "!\n\n");
-        }
+      if (this.processArguments.length > 0) {
+        args = this.processArguments.split(",");
+      }
+
+      const newProcess = spawn(this.processName, args);
+
+      alert(`Spawned child pid: ${newProcess.pid}`);
+      newProcess.stdout.on("data", data => {
+        alert(`stdout: ${data}`);
+        var timestamp = Date.now();
+        var logRow = {
+          pid: "0",
+          processName: "bandit",
+          username: "aaron",
+          command: "nc",
+          description: "Network Connection Established!",
+          timestamp: timestamp
+        };
+        var log4js = require("log4js");
+        var logger = log4js.getLogger();
+        logger.level = "debug";
+        logger.debug(JSON.stringify(logRow));
+      });
+
+      newProcess.stderr.on("data", data => {
+        alert(`stderr: ${data}`);
       });
 
       this.loading = !this.loading;

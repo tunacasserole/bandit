@@ -3,7 +3,7 @@ import Router from "vue-router";
 import FileCreate from "./views/FileCreate.vue";
 import FileUpdate from "./views/FileUpdate.vue";
 import FileDelete from "./views/FileDelete.vue";
-import Home from "./views/Home.vue";
+import Dashboard from "./views/Dashboard.vue";
 import Signin from "./views/Signin.vue";
 import NetworkConnect from "./views/NetworkConnect.vue";
 import NetworkSend from "./views/NetworkSend.vue";
@@ -15,9 +15,9 @@ Vue.use(Router);
 export default new Router({
   routes: [
     {
-      path: "/",
-      name: "home",
-      component: Home
+      path: "/dashboard",
+      name: "dashboard",
+      component: Dashboard
     },
     {
       path: "/signin",
