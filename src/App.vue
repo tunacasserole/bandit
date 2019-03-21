@@ -79,9 +79,9 @@ export default {
       { heading: "Network Connections" },
       { to: "/networkConnect", icon: "power", text: "Connect" },
       { to: "/networkSend", icon: "send", text: "Send Data" },
-      { divider: true },
-      { heading: "System Logs" },
-      { to: "/logs", icon: "list", text: "Review Logs" },
+      // { divider: true },
+      // { heading: "System Logs" },
+      // { to: "/logs", icon: "list", text: "Review Logs" },
       { divider: true },
       { heading: "Registry Attacks" },
       {

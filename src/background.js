@@ -15,24 +15,24 @@ let win;
 protocol.registerStandardSchemes(["app"], { secure: true });
 function createWindow() {
   // Create the browser window.
-  win = new BrowserWindow({ width: 600, height: 600, frame: false });
-  // win.setMenu(null);
+  win = new BrowserWindow({ width: 600, height: 600 });
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
     win.loadURL(process.env.WEBPACK_DEV_SERVER_URL);
-    if (process.env.IS_TEST) {
-      createProtocol("app");
-      // Load the index.html when not in development
-      win.loadURL("app://./index.html");
+    if (!process.env.IS_TEST) {
+      // win.webContents.openDevTools();
     }
+  } else {
+    createProtocol("app");
+    // Load the index.html when not in development
+    win.loadURL("app://./index.html");
   }
 
   win.on("closed", () => {
     win = null;
   });
 }
-
 // Quit when all windows are closed.
 app.on("window-all-closed", () => {
   // On macOS it is common for applications and their menu bar
