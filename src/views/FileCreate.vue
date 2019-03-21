@@ -52,7 +52,8 @@
               color="red"
               class="black--text"
               @click="createFile"
-            >Create File
+            >
+              Create File
               <v-icon right>cloud_download</v-icon>
             </v-btn>
           </v-flex>
@@ -72,13 +73,26 @@ export default {
   }),
   methods: {
     createFile: function() {
-      var fs = require("fs");
       this.loading = !this.loading;
+      var fs = require("fs");
       var content = "some sample content";
       try {
         fs.writeFileSync(this.fileName, content, "utf-8");
         alert("Created your file " + this.fileName);
-        // localStorage.fileHistory.push(this.fileName);
+        var timestamp = Date.now();
+        var logRow = {
+          pid: this.pid,
+          processName: "bandit",
+          command: "mkfile",
+          username: "aaron",
+          description: "File Created!",
+          fileName: this.fileName,
+          timestamp: timestamp
+        };
+        var log4js = require("log4js");
+        var logger = log4js.getLogger();
+        logger.level = "debug";
+        logger.debug(JSON.stringify(logRow));
       } catch (e) {
         alert("Failed to create the file !\n\n" + e);
       }

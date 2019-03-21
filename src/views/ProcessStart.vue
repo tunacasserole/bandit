@@ -31,7 +31,8 @@
               color="red"
               class="black--text"
               @click="startProcess"
-            >Start Process
+            >
+              Start Process
               <v-icon right>play_circle_outline</v-icon>
             </v-btn>
           </v-flex>
@@ -64,15 +65,25 @@ export default {
       alert(`Spawned child pid: ${newProcess.pid}`);
       newProcess.stdout.on("data", data => {
         alert(`stdout: ${data}`);
+        var timestamp = Date.now();
+        var logRow = {
+          pid: "0",
+          processName: "bandit",
+          command: "curl http",
+          username: "aaron",
+          description: "Data Sent!",
+          timestamp: timestamp
+        };
+        var log4js = require("log4js");
+        var logger = log4js.getLogger();
+        logger.level = "debug";
+        logger.debug(JSON.stringify(logRow));
       });
 
       newProcess.stderr.on("data", data => {
         alert(`stderr: ${data}`);
       });
 
-      newProcess.on("close", code => {
-        alert(`child process exited with code ${code}`);
-      });
       this.loading = !this.loading;
     }
   }

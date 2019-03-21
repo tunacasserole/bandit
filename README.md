@@ -4,10 +4,6 @@ Desktop electron app for mimicking a bad actor that operates on files, processes
 
 ## To run in Electron
 
-`yarn serve`
-
-or...
-
 `yarn electron:serve`
 
 ## Project setup

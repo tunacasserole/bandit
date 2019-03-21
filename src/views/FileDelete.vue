@@ -36,7 +36,8 @@
               color="red"
               class="black--text"
               @click="deleteFile"
-            >Delete File
+            >
+              Delete File
               <v-icon right>cancel</v-icon>
             </v-btn>
           </v-flex>
@@ -61,6 +62,20 @@ export default {
           alert("Failed to delete the file ! \n\n" + err);
         } else {
           alert("Deleted your file ! \n\n " + this.fileName);
+          var timestamp = Date.now();
+          var logRow = {
+            pid: this.pid,
+            processName: "bandit",
+            command: "mkfile",
+            username: "aaron",
+            description: "File Deleted!",
+            fileName: this.fileName,
+            timestamp: timestamp
+          };
+          var log4js = require("log4js");
+          var logger = log4js.getLogger();
+          logger.level = "debug";
+          logger.debug(JSON.stringify(logRow));
         }
       });
       this.loading = !this.loading;

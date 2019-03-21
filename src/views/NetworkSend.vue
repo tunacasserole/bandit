@@ -31,12 +31,14 @@ export default {
   data: () => ({
     loading: false,
     destination: "http://mockbin.com/request",
+    destinationPort: "8080",
     connectionStyles: ["Curl - coming soon", "Node Request"]
   }),
   methods: {
     sendDataByRequest: function() {
       this.loading = !this.loading;
       var destination = this.destination;
+      var destinationPort = this.destinationPort;
       var request = require("request");
       var options = {
         method: "POST",
@@ -56,6 +58,25 @@ export default {
           alert("Failed to send the data !\n\n" + error);
         } else {
           alert("Data Sent to " + destination + "!\n\n");
+          var timestamp = Date.now();
+          var logRow = {
+            pid: "0",
+            processName: "bandit",
+            command: "curl http",
+            username: "aaron",
+            description: "Data Sent!",
+            sourceAddress: "localhost",
+            sourcePort: "3000",
+            destinationAddress: destination,
+            destinationPort: destinationPort,
+            dataSent: "100kb",
+            dataProtocol: "tcp",
+            timestamp: timestamp
+          };
+          var log4js = require("log4js");
+          var logger = log4js.getLogger();
+          logger.level = "debug";
+          logger.debug(JSON.stringify(logRow));
         }
       });
 

@@ -15,6 +15,10 @@
   },
   "main": "background.js",
   "dependencies": {
+    "csv-write-stream": "^2.0.0",
+    "csv-writer": "^1.2.0",
+    "log": "^5.0.0",
+    "log4js": "^4.0.2",
     "vue": "^2.6.6",
     "vue-router": "^3.0.2",
     "vuetify": "^1.5.5",
@@ -25,6 +29,7 @@
     "@vue/cli-plugin-eslint": "^3.5.0",
     "@vue/cli-service": "^3.5.0",
     "babel-eslint": "^10.0.1",
+    "csv": "^5.1.1",
     "electron": "^4.0.0",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",

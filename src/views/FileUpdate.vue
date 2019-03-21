@@ -40,7 +40,8 @@
               color="red"
               class="black--text"
               @click="updateFile"
-            >Update File
+            >
+              Update File
               <v-icon right>cloud_download</v-icon>
             </v-btn>
           </v-flex>
@@ -67,6 +68,20 @@ export default {
           alert("Failed to update the file ! \n\n" + err);
         } else {
           alert("Updated your file ! \n\n " + this.fileName);
+          var timestamp = Date.now();
+          var logRow = {
+            pid: this.pid,
+            processName: "bandit",
+            command: "mkfile",
+            username: "aaron",
+            description: "File Created!",
+            fileName: this.fileName,
+            timestamp: timestamp
+          };
+          var log4js = require("log4js");
+          var logger = log4js.getLogger();
+          logger.level = "debug";
+          logger.debug(JSON.stringify(logRow));
         }
       });
 

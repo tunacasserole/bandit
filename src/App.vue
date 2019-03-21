@@ -69,9 +69,11 @@ export default {
       { to: "/", icon: "vpn_key", text: "MAC Keychain - coming soon" }
     ]
   }),
+
   props: {
     source: String
-  }
+  },
+  mounted() {}
 };
 </script>
 
