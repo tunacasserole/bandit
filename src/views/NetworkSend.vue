@@ -66,7 +66,7 @@ export default {
             username: "aaron",
             description: "Data Sent!",
             sourceAddress: "localhost",
-            sourcePort: "3000",
+            sourcePort: "8080",
             destinationAddress: destination,
             destinationPort: destinationPort,
             dataSent: "100kb",

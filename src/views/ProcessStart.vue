@@ -61,15 +61,14 @@ export default {
       }
 
       const newProcess = spawn(this.processName, args);
-
       alert(`Spawned child pid: ${newProcess.pid}`);
       newProcess.stdout.on("data", data => {
         alert(`stdout: ${data}`);
         var timestamp = Date.now();
         var logRow = {
-          pid: "0",
+          pid: newProcess.pid,
           processName: "bandit",
-          command: "curl http",
+          command: this.processName,
           username: "aaron",
           description: "Data Sent!",
           timestamp: timestamp

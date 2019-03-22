@@ -44,7 +44,7 @@ export default {
 
       var timestamp = Date.now();
       var logRow = {
-        pid: "0",
+        pid: newProcess.pid,
         processName: "bandit",
         username: "aaron",
         command: "nc",
