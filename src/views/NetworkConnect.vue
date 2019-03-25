@@ -9,8 +9,13 @@
     <template>
       <v-container fluid grid-list-xl>
         <v-layout wrap align-center>
-          <v-flex sm4 d-flex></v-flex>
-          <v-flex sm4 d-flex>
+          <v-flex sm6 d-flex>
+            <v-text-field v-model="connectionAddress" label="Connect To"></v-text-field>
+          </v-flex>
+          <v-flex sm3 d-flex>
+            <v-text-field v-model="connectionPort" label="Port"></v-text-field>
+          </v-flex>
+          <v-flex sm3 d-flex>
             <v-btn @click="establishNetworkConnection();" color="error">Connect</v-btn>
           </v-flex>
         </v-layout>
@@ -24,18 +29,18 @@ export default {
   data: () => ({
     loading: false,
     processName: "nc",
-    processArguments: "127.0.0.1,64"
+    connectionAddress: "127.0.0.1",
+    connectionPort: "64"
   }),
   methods: {
     establishNetworkConnection: function() {
       this.loading = !this.loading;
       const { spawn } = require("child_process");
-      var args = this.processArguments;
-      if (this.processArguments.length > 0) {
-        args = this.processArguments.split(",");
-      }
 
-      const newProcess = spawn(this.processName, args);
+      const newProcess = spawn(this.processName, [
+        this.connectionAddress,
+        this.connectionPort
+      ]);
 
       alert(`Spawned child pid: ${newProcess.pid}`);
       newProcess.stdout.on("data", data => {
